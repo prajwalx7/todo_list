@@ -5,6 +5,10 @@ import 'package:todo_list/pages/settings_page.dart';
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key, Key? hkey});
 
+  final Color customGreen = const Color(0xff03C988);
+  final Color customRed = const Color(0xffF45050);
+  final Color customYellow = const Color(0xff03C988);
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -20,7 +24,7 @@ class MyDrawer extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/background.png'),
+                image: AssetImage('assets/images/bgi.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -51,20 +55,47 @@ class MyDrawer extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    content: const SingleChildScrollView(
+                    content: SingleChildScrollView(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('How to add a task:'),
-                          Text('- Press the "+" icon.'),
-                          Text('- Enter the task title and tap "Add".'),
-                          SizedBox(height: 16),
-                          Text('How to delete a task:'),
-                          Text('- Swipe left on the task and tap "Delete".'),
-                          SizedBox(height: 16),
-                          Text('How to edit a task:'),
-                          Text('- Long press on the task to edit it.'),
-                          Text('- Make your changes and tap "Save".'),
+                          const Text('How to add a task:'),
+                          const Text('- Press the "+" icon.'),
+                          const Text('- Enter the task title and tap "Add".'),
+                          const SizedBox(height: 16),
+                          const Text('How to delete a task:'),
+                          const Text(
+                              '- Swipe left on the task and tap "Delete".'),
+                          const SizedBox(height: 16),
+                          const Text('How to edit a task:'),
+                          const Text('- Long press on the task to edit it.'),
+                          const Text('- Make your changes and tap "Save".'),
+                          const SizedBox(height: 16),
+                          const Text('Indications: '),
+                          Row(
+                            children: [
+                              Icon(Icons.circle, color: customGreen),
+                              const Text(' Task Completion.'),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.circle, color: customRed),
+                              const Text(' Task with High Priority.'),
+                            ],
+                          ),
+                          const Row(
+                            children: [
+                              Icon(Icons.circle, color: Colors.yellow),
+                              Text(' Task with Low Priority.'),
+                            ],
+                          ),
+                          const Row(
+                            children: [
+                              Icon(Icons.circle, color: Colors.grey),
+                              Text(' Task with No Priority.'),
+                            ],
+                          ),
                         ],
                       ),
                     ),
