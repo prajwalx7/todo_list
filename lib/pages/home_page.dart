@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:lottie/lottie.dart';
 import 'package:todo_list/core/task_data.dart';
 import 'package:todo_list/core/task_list.dart';
@@ -45,6 +44,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     });
   }
 
+  //add task function
   void addTask(String task, String description, DateTime? dueDate) {
     final newTask = TaskData(
       task: task,
@@ -62,6 +62,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     });
   }
 
+  //remove task function
   void removeTask(int index) {
     if (index >= 0 && index < myTasks.length) {
       final removedTask = myTasks.removeAt(index);
@@ -109,6 +110,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     });
   }
 
+  // when no task is assigned animation is displayed
   Widget _buildEmptyListWidget() {
     return Center(
       child: Column(
@@ -150,6 +152,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     );
   }
 
+  //function for task editing
   Future<void> _editTask(BuildContext context, int index) async {
     if (index >= 0 && index < myTasks.length) {
       final editedTask = await showDialog(
@@ -181,24 +184,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     // print(myTasks);
     return Scaffold(
-      drawer:  MyDrawer(),
+      drawer: const MyDrawer(),
       backgroundColor: Colors.deepPurple.shade100,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
-        child: AppBar(
-          elevation: 0.0,
-          actions: [
-            const Spacer(),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Iconsax.sun_1,
-                color: Colors.black,
-              ),
-            ),
-          ],
-          iconTheme: const IconThemeData(color: Colors.black),
-        ),
+        child: AppBar(elevation: 0.0, actions: const [
+          Spacer(),
+        ]),
       ),
       body: Stack(
         children: [
@@ -250,6 +242,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             ),
           ),
+
+          //action button to add task
           Positioned(
             bottom: 10,
             right: 10,

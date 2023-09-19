@@ -30,7 +30,7 @@ class TaskList extends StatefulWidget {
 
 class TaskListState extends State<TaskList> {
   bool isEditing = false;
-
+  //task priority dot
   Color getBorderColor(DateTime? dueDate, bool isDone) {
     if (isDone) {
       return const Color(0xff03C988);
@@ -44,9 +44,10 @@ class TaskListState extends State<TaskList> {
         return Colors.yellow;
       }
     }
-    return Colors.grey; // Default color
+    return Colors.grey; //default color
   }
 
+  //slideable delete button
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -79,11 +80,6 @@ class TaskListState extends State<TaskList> {
             decoration: BoxDecoration(
               color: Colors.white, // color of task bg
               borderRadius: BorderRadius.circular(18),
-              // border: Border.all(
-              //   width: 3,
-              //   color: getBorderColor(
-              //       widget.dueDate, widget.isDone), // dynamic container color
-              // ),
               boxShadow: const [
                 BoxShadow(blurRadius: 5, color: Colors.black12, spreadRadius: 2)
               ],
@@ -94,11 +90,14 @@ class TaskListState extends State<TaskList> {
               children: [
                 Row(
                   children: [
+                    // checkbox
                     Checkbox(
                       value: widget.isDone,
                       onChanged: widget.onChanged,
                       activeColor: Colors.black,
                     ),
+
+                    //task heading
                     Expanded(
                       child: Text(
                         widget.task,
@@ -111,6 +110,8 @@ class TaskListState extends State<TaskList> {
                         ),
                       ),
                     ),
+
+                    // task date
                     if (widget.dueDate != null)
                       Container(
                         padding: const EdgeInsets.all(3),
@@ -140,6 +141,8 @@ class TaskListState extends State<TaskList> {
                   height: 10,
                 ),
                 if (widget.description.isNotEmpty)
+
+                  //task description
                   Flexible(
                     child: Text(
                       widget.description,
