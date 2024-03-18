@@ -44,7 +44,8 @@ class _DialogBoxState extends State<DialogBox> {
     return AlertDialog(
       backgroundColor: Colors.deepPurple.shade100,
       content: SizedBox(
-        height: 320,
+        height: 350,
+        width: 400,
         child: Form(
           key: formKey,
           child: Column(
@@ -105,7 +106,7 @@ class _DialogBoxState extends State<DialogBox> {
                   ),
                 ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 60),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -113,9 +114,6 @@ class _DialogBoxState extends State<DialogBox> {
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    // style: ElevatedButton.styleFrom(
-                    //   backgroundColor: Colors.grey,
-                    // ),
                     child: const Text('Cancel',
                         style: TextStyle(color: Colors.black)),
                   ),
@@ -131,9 +129,12 @@ class _DialogBoxState extends State<DialogBox> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
+                      backgroundColor: Colors.deepPurple,
                     ),
-                    child: Text(buttonText),
+                    child: Text(
+                      buttonText,
+                      style: const TextStyle(color: Colors.white),
+                    ),
                   ),
                 ],
               )

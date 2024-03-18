@@ -71,7 +71,7 @@ class TaskListState extends State<TaskList> {
         child: GestureDetector(
           onLongPress: () {
             setState(() {
-              isEditing = true; // Set isEditing to true when editing starts.
+              isEditing = true; // Set isEditing to true when editing starts
             });
             widget.onLongPress?.call();
           },
@@ -144,11 +144,14 @@ class TaskListState extends State<TaskList> {
 
                   //task description
                   Flexible(
-                    child: Text(
-                      widget.description,
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.grey.shade600,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 16.0),
+                      child: Text(
+                        widget.description,
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.grey.shade600,
+                        ),
                       ),
                     ),
                   ),
