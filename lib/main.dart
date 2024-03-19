@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
         textTheme: GoogleFonts.poppinsTextTheme(),
+        iconTheme: const IconThemeData(color: Colors.white)
       ),
     );
   }

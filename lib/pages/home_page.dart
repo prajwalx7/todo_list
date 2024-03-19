@@ -4,7 +4,7 @@ import 'package:todo_list/core/task_data.dart';
 import 'package:todo_list/core/task_list.dart';
 import 'package:todo_list/widgets/animation.dart';
 import 'package:todo_list/widgets/dialog_box.dart';
-import 'package:todo_list/widgets/drawer.dart';
+import 'package:todo_list/widgets/tips.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -182,18 +182,25 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    // print(myTasks);
     return Scaffold(
-      drawer: const MyDrawer(),
-      backgroundColor: Colors.deepPurple.shade100,
+      backgroundColor: const Color(0xffEEEEEE),
       appBar: AppBar(
         title: const Text(
           "To-Do List",
           style: TextStyle(color: Colors.white),
         ),
-        centerTitle: true,
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color(0xff222831),
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            onPressed: () {
+              showDialog(
+                  context: context, builder: ((context) => const Tips()));
+            },
+            icon: const Icon(Icons.tips_and_updates_outlined),
+          )
+        ],
       ),
       body: Stack(
         children: [
@@ -202,7 +209,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             child: const MyAnimation(),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 50, left: 14, right: 14), //padding for task card
+            padding: const EdgeInsets.only(
+                top: 50, left: 14, right: 14), //padding for task card
             child: Column(
               children: [
                 Expanded(
