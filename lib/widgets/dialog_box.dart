@@ -40,6 +40,7 @@ class _DialogBoxState extends State<DialogBox> {
   Widget build(BuildContext context) {
     final isEditing = widget.isEditing;
     final buttonText = isEditing ? 'Save' : 'Add';
+    const textColor = Colors.white;
 
     return AlertDialog(
       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
@@ -158,6 +159,7 @@ class _DialogBoxState extends State<DialogBox> {
                       ),
                       child: Text(
                         buttonText,
+                        style: const TextStyle(color: textColor),
                       ),
                     ),
                   ),

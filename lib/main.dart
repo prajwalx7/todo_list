@@ -15,12 +15,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
       theme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: const Color(0xff222831),
-        scaffoldBackgroundColor: const Color(0xffEEEEEE),
-        textTheme: GoogleFonts.poppinsTextTheme()
-            .copyWith(displayLarge: const TextStyle(color: Colors.white)),
-      ),
+          brightness: Brightness.dark,
+          primaryColor: const Color(0xff222831),
+          scaffoldBackgroundColor: const Color(0xffEEEEEE),
+          textTheme: GoogleFonts.poppinsTextTheme()),
     );
   }
 }

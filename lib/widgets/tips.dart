@@ -64,14 +64,16 @@ class Tips extends StatelessWidget {
       actions: [
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            
             shape:
                 const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
           ),
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: const Text('Close'),
+          child: const Text(
+            'Close',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ],
     );
