@@ -42,9 +42,10 @@ class _DialogBoxState extends State<DialogBox> {
     final buttonText = isEditing ? 'Save' : 'Add';
 
     return AlertDialog(
-      backgroundColor: Colors.deepPurple.shade100,
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       content: SizedBox(
-        height: 350,
+        height: 370,
         width: 400,
         child: Form(
           key: formKey,
@@ -59,21 +60,39 @@ class _DialogBoxState extends State<DialogBox> {
                 },
                 focusNode: _focusNode,
                 controller: _taskController,
-                decoration: InputDecoration(
+                cursorColor: Colors.black,
+                decoration: const InputDecoration(
                   helperText: "Task title",
-                  focusColor: Colors.black,
+                  helperStyle: TextStyle(color: Colors.grey),
+                  errorStyle: TextStyle(color: Colors.red),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.zero,
+                    borderSide: BorderSide(color: Colors.black, width: 2),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.zero,
+                    borderSide: BorderSide(color: Colors.black, width: 2),
                   ),
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
               TextField(
+                cursorColor: Colors.black,
                 controller: _descriptionController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: "(optional)",
+                  hintStyle: TextStyle(color: Colors.grey),
                   helperText: "Description",
+                  helperStyle: TextStyle(color: Colors.grey),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.zero,
+                    borderSide: BorderSide(color: Colors.black),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.zero,
+                    borderSide: BorderSide(color: Colors.black, width: 2),
                   ),
                 ),
               ),
@@ -96,8 +115,8 @@ class _DialogBoxState extends State<DialogBox> {
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.grey, width: 1),
+                    borderRadius: BorderRadius.zero,
+                    border: Border.all(width: 2),
                   ),
                   child: Text(
                     selectedDueDate != null
@@ -106,7 +125,7 @@ class _DialogBoxState extends State<DialogBox> {
                   ),
                 ),
               ),
-              const SizedBox(height: 60),
+              const SizedBox(height: 65),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -114,26 +133,32 @@ class _DialogBoxState extends State<DialogBox> {
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    child: const Text('Cancel',
-                        style: TextStyle(color: Colors.black)),
+                    child: const Text(
+                      'Cancel',
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                   const SizedBox(width: 8),
-                  ElevatedButton(
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        String newTask = _taskController.text;
-                        String newDescription = _descriptionController.text;
-                        widget.onAddTask(
-                            newTask, newDescription, selectedDueDate);
-                        Navigator.of(context).pop();
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
-                    ),
-                    child: Text(
-                      buttonText,
-                      style: const TextStyle(color: Colors.white),
+                  Container(
+                    decoration: const BoxDecoration(),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          String newTask = _taskController.text;
+                          String newDescription = _descriptionController.text;
+                          widget.onAddTask(
+                              newTask, newDescription, selectedDueDate);
+                          Navigator.of(context).pop();
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.zero,
+                        ),
+                      ),
+                      child: Text(
+                        buttonText,
+                      ),
                     ),
                   ),
                 ],

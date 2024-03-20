@@ -183,14 +183,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffEEEEEE),
       appBar: AppBar(
         title: const Text(
           "To-Do List",
-          style: TextStyle(color: Colors.white),
         ),
-        iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: const Color(0xff222831),
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
@@ -258,15 +254,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           Positioned(
             bottom: 10,
             right: 10,
-            child: GestureDetector(
-              onTap: () {
+            child: FloatingActionButton(
+              onPressed: () {
                 _onAddButtonTap(context);
               },
-              child: LottieBuilder.asset(
-                "assets/add.json",
-                height: 100,
-                width: 100,
-                fit: BoxFit.cover,
+              backgroundColor: Theme.of(context).primaryColor,
+              child: const Icon(
+                Icons.add,
+                color: Colors.white,
               ),
             ),
           ),

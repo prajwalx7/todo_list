@@ -10,6 +10,7 @@ class Tips extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       title: const Text(
         'Instructions',
         style: TextStyle(
