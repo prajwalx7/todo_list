@@ -10,13 +10,13 @@ class MyAnimation extends StatelessWidget {
         Align(
           alignment: Alignment.topLeft,
           child: Padding(
-            padding: EdgeInsets.only(top: 8.0, left: 18.0),
+            padding: EdgeInsets.only(top: 20.0, left: 20.0),
             child: Text(
-              "Hello Prajwal",
+              "Today's Tasks",
               style: TextStyle(
-                fontSize: 25,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
+                color: Colors.black54,
               ),
             ),
           ),

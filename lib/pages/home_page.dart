@@ -194,7 +194,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               showDialog(
                   context: context, builder: ((context) => const Tips()));
             },
-            icon: const Icon(Icons.tips_and_updates_outlined),
+            icon: const Icon(
+              Icons.tips_and_updates_outlined,
+              color: Colors.white,
+            ),
           )
         ],
       ),
@@ -206,7 +209,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
           Padding(
             padding: const EdgeInsets.only(
-                top: 50, left: 14, right: 14), //padding for task card
+              top: 50,
+              left: 14,
+              right: 14,
+            ), //padding for task card
             child: Column(
               children: [
                 Expanded(

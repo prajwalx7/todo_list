@@ -54,11 +54,12 @@ class TaskListState extends State<TaskList> {
       padding: const EdgeInsets.all(8.0),
       child: Slidable(
         endActionPane: ActionPane(
+          extentRatio: 0.4,
           motion: const BehindMotion(),
           children: [
             SlidableAction(
               spacing: 8,
-              borderRadius: BorderRadius.circular(18),
+              borderRadius: BorderRadius.zero,
               onPressed: (BuildContext context) =>
                   widget.removeTask(widget.index),
               backgroundColor: Colors.red,
@@ -77,10 +78,14 @@ class TaskListState extends State<TaskList> {
           },
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 15),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white, // color of task bg
-              borderRadius: BorderRadius.circular(18),
-              boxShadow: const [
+              borderRadius: BorderRadius.zero,
+              border: Border(
+                right: BorderSide(width: 5),
+                bottom: BorderSide(width: 5),
+              ),
+              boxShadow: [
                 BoxShadow(blurRadius: 5, color: Colors.black12, spreadRadius: 2)
               ],
             ),
@@ -94,7 +99,7 @@ class TaskListState extends State<TaskList> {
                     Checkbox(
                       value: widget.isDone,
                       onChanged: widget.onChanged,
-                      activeColor: Colors.black,
+                      activeColor: Colors.white,
                     ),
 
                     //task heading
@@ -117,7 +122,7 @@ class TaskListState extends State<TaskList> {
                         padding: const EdgeInsets.all(3),
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.grey, width: 0.5),
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.zero,
                         ),
                         child: Text(
                           DateFormat('MMM d, yyyy').format(widget.dueDate!),
