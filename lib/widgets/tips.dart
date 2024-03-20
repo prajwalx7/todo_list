@@ -10,6 +10,7 @@ class Tips extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       title: const Text(
         'Instructions',
@@ -62,6 +63,9 @@ class Tips extends StatelessWidget {
       ),
       actions: [
         ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.zero)),
           onPressed: () {
             Navigator.of(context).pop();
           },

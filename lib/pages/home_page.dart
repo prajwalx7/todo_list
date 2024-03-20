@@ -252,12 +252,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
           //action button to add task
           Positioned(
-            bottom: 10,
-            right: 10,
+            bottom: 30,
+            right: 30,
             child: FloatingActionButton(
               onPressed: () {
                 _onAddButtonTap(context);
               },
+              shape:
+                  const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
               backgroundColor: Theme.of(context).primaryColor,
               child: const Icon(
                 Icons.add,
