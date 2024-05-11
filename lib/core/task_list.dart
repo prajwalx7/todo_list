@@ -81,12 +81,9 @@ class TaskListState extends State<TaskList> {
             decoration: const BoxDecoration(
               color: Colors.white, // color of task bg
               borderRadius: BorderRadius.zero,
-              border: Border(
-                right: BorderSide(width: 5),
-                bottom: BorderSide(width: 5),
-              ),
+
               boxShadow: [
-                BoxShadow(blurRadius: 5, color: Colors.black12, spreadRadius: 2)
+                BoxShadow(blurRadius: 2, color: Colors.black, spreadRadius: 2)
               ],
             ),
             child: Column(
