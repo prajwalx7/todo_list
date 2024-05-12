@@ -83,7 +83,12 @@ class TaskListState extends State<TaskList> {
               borderRadius: BorderRadius.zero,
 
               boxShadow: [
-                BoxShadow(blurRadius: 2, color: Colors.black, spreadRadius: 2)
+                BoxShadow(
+                  offset: Offset(4, 4),
+                  blurRadius: 1,
+                  blurStyle: BlurStyle.normal,
+                  color: Colors.black,
+                )
               ],
             ),
             child: Column(
